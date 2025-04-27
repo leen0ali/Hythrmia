@@ -92,7 +92,7 @@ const Dashboard = ({ setAlertMessage }: Props) => {
 				/>
 				<CardItem
 					imageSrc={zwaveLogo}
-					buttonLink="/scan_zwave"
+					buttonLink="/zwave"
 					buttonText="Scan Z-Wave Devices"
 					title="Z-Wave Devices"
 					text="Discover Z-Wave devices and analyze their security."

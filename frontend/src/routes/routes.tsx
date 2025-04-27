@@ -34,7 +34,7 @@ const AppRoutes = ({ setUser, setAlertMessage }: AppRoutesProps) => {
 			<Route path="/settings" element={<SettingsPage />} />
 			<Route path="/about" element={<About />} />
 			<Route path="/features" element={<Features />} />
-			<Route path="/zwavepage" element={<ZWaveScanPage/>} />
+			<Route path="/zwave" element={<ZWaveScanPage/>} />
 		</Routes>
 	);
 };
