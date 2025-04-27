@@ -5,9 +5,9 @@
     "ollama_url": "http://localhost:11434/api/generate",
     "ollama_model": "deepseek-r1:1.5b",
     "gpt_model": "gpt-4o-mini",
-    "gpt_token": "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",
-    "passEnabled": true,
-    "passwords": "Hello\nhello2\ns88888888",
-    "vulnersEnabled": true,
+    "gpt_token": "",
+    "passEnabled": false,
+    "passwords": "",
+    "vulnersEnabled": false,
     "vulnersApiKey": "IKBD0CVM9EFNVCCTC1SPVHVPEW480W3XGXXQXOCDY7XHQFV99HL4IP90J3LMHE60"
 }
