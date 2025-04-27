@@ -1,0 +1,24 @@
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS devices (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ip_address VARCHAR(20) NOT NULL,
+    mac_address VARCHAR(50) NOT NULL,
+    device_name VARCHAR(50) NOT NULL,
+	ai_result TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS device_port (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    device_id INT NOT NULL,
+    port INT NOT NULL,
+    status VARCHAR(5) NOT NULL,
+	ai_result TEXT NOT NULL,
+    FOREIGN KEY (device_id) REFERENCES devices(id) ON DELETE CASCADE
+);
+
