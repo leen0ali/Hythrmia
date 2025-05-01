@@ -15,6 +15,7 @@
     "@types/bootstrap": "^5.2.10",
     "@types/recharts": "^1.8.29",
     "bootstrap": "^5.3.5",
+    "fs": "^0.0.1-security",
     "less": "^4.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
+    "@types/node": "^22.15.3",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
