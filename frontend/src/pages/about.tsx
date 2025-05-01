@@ -69,53 +69,43 @@ const About: React.FC = () => {
       >
         {/* Section: Why Hythrmia */}
         <section className="mb-5">
-          <h2 style={{ fontSize: "2.8rem", fontWeight: "900", color: "#ff0066" }}>
-            Why <span className="red-text">Hythrmia</span>?
+          <h2 style={{ fontSize: "2.8rem", fontWeight: "900", color: "#74002e" }}>
+            Why Hythrmia?
           </h2>
           <p>
-            The name <span className="fire-text">Hythrmia</span> was inspired by the word <i>“Hyperthermia”</i> —
-            a dangerously high body temperature. But instead of overheating humans, Hythrmia is about detecting the{" "}
-            <b>heat of digital threats</b> in your smart environment.
+            The name Hythrmia is inspired by the word "Hyperthermia" — a dangerously high body temperature. Instead of overheating humans, Hythrmia focuses on detecting the heat of digital threats in your smart home network.
           </p>
           <p>
-            When your devices are “too hot” — wide open ports, weak credentials, or outdated firmware —{" "}
-            <b>Hythrmia detects the burn</b> and gives you control before threats spread.
+            As IoT devices proliferate, vulnerabilities such as open ports, weak credentials, and outdated firmware can put users at risk. Hythrmia identifies these vulnerabilities early and helps users take proactive security actions before threats can spread.
           </p>
         </section>
 
         {/* Section: What Does Hythrmia Do? */}
         <section className="mb-5">
-          <h2 style={{ fontSize: "2.8rem", fontWeight: "900", color: "#00ffcc" }}>What Does Hythrmia Do?</h2>
+          <h2 style={{ fontSize: "2.8rem", fontWeight: "900", color: "#74002e" }}>What Does Hythrmia Do?</h2>
           <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem", color: "#e0e0e0" }}>
-            <li>Scans smart devices using WiFi, Bluetooth, Zigbee, and Z-Wave protocols</li>
-            <li>Detects vulnerabilities like open ports, weak passwords, and outdated firmware</li>
-            <li>Uses GPT or Ollama AI to explain issues and suggest secure actions</li>
-            <li>Feeds port data into tools like Hydra for deeper analysis when needed</li>
-            <li>Runs entirely offline for total privacy — no cloud, no compromise</li>
+            <li>Scans IoT devices using Wi-Fi and Bluetooth protocols to detect vulnerabilities.</li>
+            <li>Identifies security risks like open ports, weak credentials, and outdated firmware.</li>
+            <li>Provides AI-powered security recommendations through integration with OpenAI to explain findings and suggest fixes.</li>
+            <li>Performs penetration testing using tools like Hydra for deeper vulnerability analysis.</li>
+            <li>Operates entirely offline, ensuring that your data stays under your control, with no cloud dependency.</li>
           </ul>
         </section>
 
-        {/* Section: Why I Built This */}
+        {/* Section: Why I Built Hythrmia */}
         <section className="mb-5">
-          <h2 style={{ fontSize: "2.8rem", fontWeight: "900", color: "#ff0066" }}>Why I Built This</h2>
+          <h2 style={{ fontSize: "2.8rem", fontWeight: "900", color: "#74002e" }}>Why I Built Hythrmia</h2>
           <p>
-            In today’s cloud-dominated world, it’s easy to assume every tool must be online. But I built Hythrmia
-            to push back on that assumption. I wanted to prove that security could still be powerful, private, and
-            offline-first.
+            As IoT devices continue to become an integral part of smart homes, the growing concern over IoT security prompted me to build Hythrmia. The goal was to create a private, and powerful security scanner for IoT networks. Many cloud-based tools collect sensitive data from connected devices, potentially compromising privacy. I wanted to create a solution where users have complete control over their data.
           </p>
           <p>
-            Cloud-based scanners often collect data about your devices — your open ports, firmware versions, and
-            more. Hythrmia doesn’t. All scanning and analysis happens locally. That means <b>you own your data</b>.
-            It stays on your machine, fully in your control.
+            Unlike cloud-based scanners, Hythrmia performs all security checks locally on the user’s machine. This ensures that you own your data and that nothing is shared or transmitted without your explicit permission.
           </p>
           <p>
-            This approach reduces the attack surface, avoids privacy risks, and works even when you're offline. No
-            internet? No problem. Whether you’re in a remote area, running a closed system, or protecting sensitive
-            environments — Hythrmia keeps working.
+            The tool supports Wi-Fi and Bluetooth devices and is currently focused on Dahua cameras and Surplife smart light bulbs. Future updates will expand the list of supported devices, integrating other IoT protocols such as Zigbee and Z-Wave once the required hardware is available. In addition to device security, Hythrmia will also incorporate AI-driven anomaly detection to improve real-time monitoring and detection of unusual behavior in the network.
           </p>
           <p>
-            It’s designed for everyday users and professionals alike: a homeowner scanning their smart cameras, a
-            local IT admin checking a small office setup, or a cybersecurity trainer teaching offline-first principles.
+            Whether you are a homeowner securing your smart devices, an  IT professional managing a local network, or a cybersecurity trainer teaching offline-first principles, Hythrmia is designed to make securing IoT networks both straightforward and effective. By integrating multiple security tools into one platform, it empowers users to manage their network security without requiring advanced technical knowledge.
           </p>
         </section>
       </div>
@@ -142,96 +132,6 @@ const About: React.FC = () => {
           }}
         />
       </div>
-
-      {/* CSS Styles */}
-      <style>
-        {`
-          /* Fire Text Animation */
-          .fire-text {
-            color: #ff0055;
-            animation: burn 2s infinite alternate;
-            font-weight: bold;
-            display: inline-block;
-            text-shadow: 0 0 5px #ff0066, 0 0 10px #ff3300, 0 0 15px #ff6600;
-          }
-
-          @keyframes burn {
-            0% {
-              text-shadow: 0 0 5px #ff0066, 0 0 10px #ff3300, 0 0 15px #ff6600;
-            }
-            100% {
-              text-shadow: 0 0 10px #ff3300, 0 0 20px #ff6600, 0 0 30px #ff9933;
-            }
-          }
-
-          /* Red Neon Effect for "Hythrmia" */
-          .red-text {
-            color: #ff0072; /* Red neon color */
-            text-shadow: 0 0 5px #ff0033, 0 0 10px #ff0055, 0 0 15px #ff0088;
-          }
-
-          /* Header Image Animation */
-          .header-img-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 50px;
-          }
-
-          .header-img {
-            width: 100%;
-            max-width: 1200px; /* Rectangular header */
-            height: 400px; /* Set fixed height for more rectangular look */
-            object-fit: cover;
-            object-position: top;
-            transition: opacity 1s ease-in-out;
-          }
-
-          .header-img.fade-in {
-            opacity: 1;
-          }
-
-          /* Footer Image */
-          .footer-img-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 50px;
-          }
-
-          .footer-img {
-            width: 100%;
-            max-width: 1200px; /* Rectangular footer */
-            height: 400px; /* Set a fixed height for footer image */
-            object-fit: cover;
-            object-position: top;
-            border-radius: 12px;
-          }
-
-          /* Text and Section Styling */
-          .section-title {
-            font-size: 2.8rem;
-            font-weight: 900;
-            color: #ff0066;
-            margin-bottom: 20px;
-          }
-
-          .section {
-            margin-bottom: 50px;
-            color: #e0e0e0;
-          }
-
-          ul {
-            padding-left: 1.5rem;
-          }
-
-          ul li {
-            margin-bottom: 12px;
-          }
-
-          p {
-            margin-bottom: 20px;
-          }
-        `}
-      </style>
     </div>
   );
 };

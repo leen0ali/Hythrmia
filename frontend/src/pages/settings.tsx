@@ -12,6 +12,10 @@ const SettingsPage: React.FC = () => {
 	const [passwordList, setPasswordList] = useState('');
 	const [vulnersEnabled, setVulnersEnabled] = useState(false);
 	const [vulnersApiKey, setVulnersApiKey] = useState('');
+	const [smtpEnabled, setSmtpEnabled] = useState(false);
+	const [smtpEmail, setSmtpEmail] = useState('');
+	const [smtpPass, setSmtpPass] = useState('');
+
 
 
 	useEffect(() => {
@@ -39,6 +43,9 @@ const SettingsPage: React.FC = () => {
 					if (data.passwords) setPasswordList(data.passwords);
 					if (data.vulnersEnabled) setVulnersEnabled(data.vulnersEnabled);
 					if (data.vulnersApiKey) setVulnersApiKey(data.vulnersApiKey);
+					if (data.smtpEnabled) setSmtpEnabled(data.smtpEnabled);
+					if (data.smtpEmail) setSmtpEmail(data.smtpEmail);
+					if (data.smtpPass) setSmtpPass(data.smtpPass);
 
 				} else {
 					console.warn("No saved configuration found.");
@@ -65,6 +72,9 @@ const SettingsPage: React.FC = () => {
 				passwords: passwordList,
 				vulnersEnabled: vulnersEnabled,
 				vulnersApiKey: vulnersApiKey,
+				smtpEnabled: smtpEnabled,
+				smtpEmail: smtpEmail,
+				smtpPass: smtpPass,
 
 			};
 
@@ -355,6 +365,49 @@ const SettingsPage: React.FC = () => {
 							onChange={(e) => setVulnersApiKey(e.target.value)}
 							placeholder="Enter your Vulners API Key"
 						/>
+					</div>
+				)}
+
+				{/* SMTP Toggle */}
+				<div className="form-check form-switch toggle-line mb-2 mt-4">
+					<input
+						className="form-check-input"
+						type="checkbox"
+						checked={smtpEnabled}
+						onChange={(e) => setSmtpEnabled(e.target.checked)}
+						id="enableSmtpCheck"
+					/>
+					<label htmlFor="enableSmtpCheck" style={{ color: '#00ffff' }}>
+						Enable SMTP Email Alerts
+					</label>
+				</div>
+
+				{/* Email + Password Fields */}
+				{smtpEnabled && (
+					<div className="mt-3">
+						<div className="form-group mb-3">
+							<label htmlFor="smtpEmail" className="cyber-label">SMTP Email</label>
+							<input
+								type="email"
+								className="form-control cyber-input"
+								id="smtpEmail"
+								value={smtpEmail}
+								onChange={(e) => setSmtpEmail(e.target.value)}
+								placeholder="i.e alerts@example.com"
+							/>
+						</div>
+
+						<div className="form-group mb-3">
+							<label htmlFor="smtpPass" className="cyber-label">SMTP Password</label>
+							<input
+								type="password"
+								className="form-control cyber-input"
+								id="smtpPass"
+								value={smtpPass}
+								onChange={(e) => setSmtpPass(e.target.value)}
+								placeholder="Enter SMTP email password"
+							/>
+						</div>
 					</div>
 				)}
 

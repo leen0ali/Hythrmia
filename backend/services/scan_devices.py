@@ -11,10 +11,11 @@ import os
 from datetime import datetime
 import tempfile
 import vulners
+from utils.smtp_utils import add_device, send_email
 
 
 # here are the devices that we are going to check cve for.
-allowedDevices = ['Dahua', 'Zengge', 'Zioncom', 'SHENZHEN']
+allowedDevices = ['Dahua']
 
 def hydra(username, ip_address, protocol="rtsp"):
     if 'username' not in session:
@@ -80,21 +81,25 @@ def arp(f, t, specific=False):
 
         for result in results:
             existing_device = Device.query.filter_by(mac_address=result['mac']).first()
-
-            if existing_device:
-                existing_device.ip = result['ip']
+            print(result['mac'])
+            if isinstance(existing_device, Device): # this should check if its not None
+                print(existing_device.to_dict())
+                # updating device
+                existing_device.ip_address = result['ip']
                 existing_device.device_name = result['name']
                 existing_device.ai_result = str(ai_result)
             else:
                 new_device = Device(
-                    ip=result['ip'],
-                    mac=result['mac'],
+                    ip_address=result['ip'],
+                    mac_address=result['mac'],
                     device_name=result['name'],
                     ai_result=str(ai_result)
                 )
+                add_device(new_device.to_dict())
                 db.session.add(new_device)
 
         db.session.commit()
+        send_email()
         return get_scanned_devices()
 
     return {"error": "Something unexpected happened"}, 400
@@ -313,4 +318,3 @@ def search_vulners_cves(vendor:str):
     except Exception as e:
         print(f"An error occurred: {e}")
         return {"error": str(e)}, 500
-
