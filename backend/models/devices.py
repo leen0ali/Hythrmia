@@ -10,14 +10,8 @@ class Device(db.Model):
     ai_result = db.Column(db.Text, nullable=False)
     ports = db.relationship('DevicePort', backref='device', cascade='all, delete-orphan')
 
-    def __init__(self, ip, mac, device_name, ai_result=""):
-        self.ip_address = ip
-        self.mac_address = mac
-        self.device_name = device_name
-        self.ai_result = ai_result
-
     def __repr__(self):
-        return f"<Device {self.device_name} - {self.ip_address}>"
+        return f"<Device {self.device_name} - {self.ip_address} - {self.mac_address}>"
 
     def to_dict(self):
         return {
