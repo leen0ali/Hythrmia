@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { apiBase } from '../types';
 
 const SettingsPage: React.FC = () => {
 	const [llmChoice, setLlmChoice] = useState('');
@@ -21,7 +22,7 @@ const SettingsPage: React.FC = () => {
 	useEffect(() => {
 		const handleGetSettings = async () => {
 			try {
-				const response = await fetch("http://localhost:3000/api/users/get-config", {
+				const response = await fetch(`${apiBase}/api/users/get-config`, {
 					method: "GET",
 					headers: { "Content-Type": "application/json" },
 					credentials: 'include'
@@ -78,7 +79,7 @@ const SettingsPage: React.FC = () => {
 
 			};
 
-			const response = await fetch("http://localhost:3000/api/users/save-config", {
+			const response = await fetch(`${apiBase}/api/users/save-config`, {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				credentials: 'include',

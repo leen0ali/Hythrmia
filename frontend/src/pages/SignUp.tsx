@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { apiBase } from '../types';
 
 type Props = {
 	setAlertMessage: React.Dispatch<React.SetStateAction<string>>;
@@ -24,7 +25,7 @@ const SignUpPage: React.FC<Props> = ({ setAlertMessage }: Props) => {
 		e.preventDefault();
 
 		try {
-			const res = await fetch('http://localhost:3000/api/users/signup', {
+			const res = await fetch(`${apiBase}/api/users/signup`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

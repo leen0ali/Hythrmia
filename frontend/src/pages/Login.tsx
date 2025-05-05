@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { User } from '../types.tsx';
 import '../styles/hacker.css';
+import { apiBase } from '../types';
 
 type AppLoginProps = {
 	setUser: React.Dispatch<React.SetStateAction<User | null>>;
@@ -23,7 +24,7 @@ const LoginPage = ({ setUser, setAlertMessage }: AppLoginProps) => {
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 		try {
-			const res = await fetch('http://localhost:3000/api/users/login', {
+			const res = await fetch(`${apiBase}/api/users/login`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				credentials: 'include',

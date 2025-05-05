@@ -1,9 +1,10 @@
 import { useState } from 'react';
-
+import { apiBase } from '../types';
 const ZWaveScanPage = () => {
   const [devices, setDevices] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+
 
   // Function to handle scanning Z-Wave devices
   const scanZWaveDevices = async () => {
@@ -11,7 +12,7 @@ const ZWaveScanPage = () => {
     setError(null);
 
     try {
-      const response = await fetch('http://localhost:3000/api/zwave/scan', {
+      const response = await fetch(`${apiBase}/api/zwave/scan`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
       });

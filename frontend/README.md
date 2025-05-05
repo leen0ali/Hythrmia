@@ -6,6 +6,13 @@ Used this stack for learning purposes. I think would be better if we used JavaSc
 >[!IMPORTANT]
 >Ensure backend server started before running the frontend.
 
+>[!NOTE]
+Please ensure you update the ip address assigned in the `.env.development.local` file and use your private local ip address. The port number used is the backend port number.
+```bash
+VITE_API_BASE=http://192.168.1.3:3000
+```
+To find the current local ip address, we can use the following command `ifconfig | grep inet` this can be done in either macOS or linux systems.
+
 ### Prerequisites
 We will need to have node.js with npm installed. [Node.JS](https://nodejs.org/en) this will ensure npm as well installed.
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Item from "../components/Item";
 import { useNavigate } from 'react-router-dom';
 import '../styles/hacker.css';
+import { apiBase } from "../types";
 
 const ScanDevices: React.FC = () => {
   const [devices, setDevices] = useState<any[]>([]);
@@ -17,7 +18,7 @@ const ScanDevices: React.FC = () => {
     setDevices([]);
     setAiAnalysis('');
     try {
-      const response = await fetch('http://localhost:3000/api/devices/delete-devices', {
+      const response = await fetch(`${apiBase}/api/devices/delete-devices`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include'
@@ -39,7 +40,7 @@ const ScanDevices: React.FC = () => {
         ? { specific: true, f: fromIP, t: toIP }
         : {};
 
-      const response = await fetch('http://localhost:3000/api/devices/scan-devices', {
+      const response = await fetch(`${apiBase}/api/devices/scan-devices`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -61,7 +62,7 @@ const ScanDevices: React.FC = () => {
     const fetchDevices = async () => {
       setLoading(true);
       try {
-        const response = await fetch('http://localhost:3000/api/devices/get-devices', {
+        const response = await fetch(`${apiBase}/api/devices/get-devices`, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include'

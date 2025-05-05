@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import '../styles/hacker.css'; // 👾 Cyberpunk style
 
+import { apiBase } from '../types';
+
 const BluetoothDevice: React.FC = () => {
 	const [scanning, setScanning] = useState(false);
 	const [results, setResults] = useState<any[]>([]);
@@ -8,7 +10,7 @@ const BluetoothDevice: React.FC = () => {
 	const handleScanClick = async () => {
 		try {
 			setScanning(true);
-			const response = await fetch('http://localhost:3000/api/devices/scan-bluetooth-devices', {
+			const response = await fetch(`${apiBase}/api/devices/scan-bluetooth-devices`, {
 				method: 'GET',
 				headers: { 'Content-Type': 'application/json' },
 				credentials: 'include'
