@@ -46,13 +46,43 @@ docker run -d --network host -v mysql-data:/var/lib/mysql --name Hythrmia_db mys
 ### Login in into the container and managing the tables if needed
 
 ```bash
-docker exec -it mysql-container bash
+docker exec -it Hythrmia_db bash
 ```
 Next will need to login to mysql
 
 ```bash
-mysql -u root -p
+mysql -u user -p
 ```
 
 This will ask for a password, must enter the password used within the docker file.
 
+
+then the following commands is to access the tables and to see what is stored
+
+First we will need to select the database, so the following command will list all the databases
+
+```bash
+show databases;
+```
+
+Then select / use a database
+
+```bash
+use hythrmia_db;
+```
+
+Once that command executed, now we can show all tables created for that selected database
+
+```bash
+show tables;
+```
+
+Next, once we know what table we need to see whats stored in them, we execute the following commands
+
+Here are some examples of how to query and get the data stored. The first command it will selected all the columns used from the users table, and list all the users in there. 
+```bash
+select * from users;
+```
+```bash
+select * from devices;
+```
