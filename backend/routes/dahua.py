@@ -25,22 +25,18 @@ def get_hardware_version():
     password = data.get('password')
     ip = data.get('ip')
     res_hardware, status_hardware = dahua_hardware_version(ip, username, password)
-    print("Status: ", status_hardware)
     if status_hardware != 200:
         print("Failed to fetch, ", res_hardware)
         return res_hardware, status_hardware
     res_software, status_software = dahua_software_version(ip, username, password)
-    print("Status: ", status_software)
     if status_software != 200:
         print("Failed to fetch, ", res_software, status_software)
         return res_software, status_software
     res_machine_name, status_name = dahua_machine_name(ip, username, password)
-    print("Machine Name: Status: ", status_name)
     if status_name != 200:
         print("Failed to fetch, ", res_machine_name)
         return res_machine_name, status_name 
     res_sys_info, status_sys_info = dahua_system_info(ip, username, password)
-    print("sys_info Status: ", status_sys_info)
     if status_sys_info != 200:
         print("Failed to fetch, ", res_sys_info)
         return res_sys_info, status_sys_info
