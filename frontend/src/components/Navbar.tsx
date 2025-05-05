@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { User } from "../types";
 import hythrmiaLogo from "../assets/pictures/hythrmia.png";
 import "../styles/hacker.css";
+import { apiBase } from "../types";
 
 type AppNavProps = {
   user: User | null;
@@ -35,7 +36,7 @@ const Navbar = ({ user, setUser }: AppNavProps) => {
 
   const handleLogout = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/users/logout", {
+      const res = await fetch(`${apiBase}/api/users/logout`, {
         method: "POST",
         credentials: "include",
       });

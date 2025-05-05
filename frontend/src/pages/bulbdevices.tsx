@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { apiBase } from "../types";
 
 const BulbDevices = () => {
 	const { ip } = useParams<{ ip: string }>();
@@ -9,7 +10,7 @@ const BulbDevices = () => {
 	const toggleLight = async () => {
 		try {
 			const endpoint = isOn ? "turn-off" : "turn-on";
-			const response = await fetch(`http://localhost:3000/api/zengge/${endpoint}/${ip}`, {
+			const response = await fetch(`${apiBase}/api/zengge/${endpoint}/${ip}`, {
 				method: "GET",
 				headers: { "Content-Type": "application/json" },
 				credentials: "include"
@@ -30,7 +31,7 @@ const BulbDevices = () => {
 		setColor(newColor);
 
 		try {
-			const response = await fetch(`http://localhost:3000/api/zengge/color`, {
+			const response = await fetch(`${apiBase}/api/zengge/color`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json"

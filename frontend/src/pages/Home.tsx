@@ -1,5 +1,4 @@
 // src/pages/Home.tsx
-import React from "react";
 import cyberfox from "../assets/pictures/cyberfox.png"; // Make sure to update path accordingly
 
 const Home: React.FC = () => {

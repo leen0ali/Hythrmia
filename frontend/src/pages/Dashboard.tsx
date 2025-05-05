@@ -6,6 +6,7 @@ import zwaveLogo from "../assets/pictures/z-wave1.png";
 import CardItem from "../components/CardItem";
 import { useState, useEffect } from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid, ResponsiveContainer } from 'recharts';
+import { apiBase } from "../types";
 
 type Props = {
 	setAlertMessage: React.Dispatch<React.SetStateAction<string>>;
@@ -24,7 +25,7 @@ const Dashboard = ({ setAlertMessage }: Props) => {
 	useEffect(() => {
 		const fetchStats = async () => {
 			try {
-				const response = await fetch('http://localhost:3000/api/devices/get-stats', {
+				const response = await fetch(`${apiBase}/api/devices/get-stats`, {
 					method: 'GET',
 					headers: { 'Content-Type': 'application/json' },
 					credentials: 'include'

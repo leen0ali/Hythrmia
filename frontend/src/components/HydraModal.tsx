@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { apiBase } from '../types';
 
 const HydraModal = ({ ip, isOpen, onClose }: { ip: string; isOpen: boolean; onClose: () => void }) => {
   const [username, setUsername] = useState('');
@@ -14,7 +15,7 @@ const HydraModal = ({ ip, isOpen, onClose }: { ip: string; isOpen: boolean; onCl
   const handleSnapshot = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:3000/api/dahua/snapshot", {
+      const response = await fetch(`${apiBase}/api/dahua/snapshot`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -31,7 +32,7 @@ const HydraModal = ({ ip, isOpen, onClose }: { ip: string; isOpen: boolean; onCl
       const result = await response.json();
       console.log(result);
       if (!response.ok) throw new Error(result.error || "Unknown error");
-      const imageUrl = "http://localhost:3000/api/dahua/get-image";
+      const imageUrl = `${apiBase}/api/dahua/get-image`;
       setImgUrl(`${imageUrl}?ts=${Date.now()}`);
     } catch (err: any) {
       console.log(`Error: ${err.message}`);
@@ -43,7 +44,7 @@ const HydraModal = ({ ip, isOpen, onClose }: { ip: string; isOpen: boolean; onCl
   const handleSubmit = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:3000/api/devices/hydra-scan", {
+      const response = await fetch(`${apiBase}/api/devices/hydra-scan`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -70,7 +71,7 @@ const HydraModal = ({ ip, isOpen, onClose }: { ip: string; isOpen: boolean; onCl
   const handleSystemInfo = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:3000/api/dahua/get-system-info", {
+      const response = await fetch(`${apiBase}/api/dahua/get-system-info`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -99,7 +100,7 @@ const HydraModal = ({ ip, isOpen, onClose }: { ip: string; isOpen: boolean; onCl
 
     const fetchImage = async () => {
       try {
-        const imageUrl = "http://localhost:3000/api/dahua/get-image";
+        const imageUrl = `${apiBase}/api/dahua/get-image`;
         setImgUrl(`${imageUrl}?ts=${Date.now()}`);
         setHasFetched(true);
       } catch (err: any) {
@@ -216,6 +217,31 @@ const HydraModal = ({ ip, isOpen, onClose }: { ip: string; isOpen: boolean; onCl
             overflow-y: auto;
             margin-top: 1rem;
           }
+
+          table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+          }
+
+          table, th, td {
+            border: 1px solid #00ffff;
+          }
+
+          th, td {
+            padding: 8px;
+            text-align: left;
+          }
+
+          th {
+            background-color: #003344;
+            color: #00ffff;
+          }
+
+          td {
+            background-color: #0b2b4f;
+            color: white;
+          }
         `}
       </style>
       <div className="modal-box">
@@ -296,7 +322,24 @@ const HydraModal = ({ ip, isOpen, onClose }: { ip: string; isOpen: boolean; onCl
           {systemInfo && (
             <div className="modal-output-box scrollable-content">
               <h4>System Info:</h4>
-              <pre>{JSON.stringify(systemInfo, null, 2)}</pre>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Data</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {Object.keys(systemInfo).map((key) => (
+                    <tr key={key}>
+                      <td>{key}</td>
+                      <td>{systemInfo[key].status}</td>
+                      <td>{JSON.stringify(systemInfo[key].data, null, 2)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           )}
 

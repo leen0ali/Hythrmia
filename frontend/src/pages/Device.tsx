@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import CardItem from '../components/CardItem';
 import hydraLogo from '../assets/pictures/hydra.png';
 import HydraModal from '../components/HydraModal';
+import { apiBase } from "../types";
 
 const Device = () => {
   const { id } = useParams<{ id: string }>();
@@ -17,7 +18,7 @@ const Device = () => {
   const scanPorts = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:3000/api/devices/scan-ports/${id}`, {
+      const response = await fetch(`${apiBase}/api/devices/scan-ports/${id}`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include'
@@ -37,7 +38,7 @@ const Device = () => {
   useEffect(() => {
     const fetchDevice = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/devices/get-device/${id}`, {
+        const response = await fetch(`${apiBase}/api/devices/get-device/${id}`, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include'

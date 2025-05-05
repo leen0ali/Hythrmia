@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import lightbulbImage from "../assets/pictures/lightbulbc.png";  // Import the image
+import { apiBase } from '../types';
 
 interface ScanResult {
 	ip: string;
@@ -16,7 +17,7 @@ const ScanLightBulbs: React.FC = () => {
 	const handleScanClick = async () => {
 		setLoading(true);
 		try {
-			const response = await fetch("http://localhost:3000/api/zengge/scan-devices", {
+			const response = await fetch(`${apiBase}/api/zengge/scan-devices`, {
 				method: 'GET',
 				credentials: 'include',
 				headers: { 'Content-Type': 'application/json' }

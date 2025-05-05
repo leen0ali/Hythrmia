@@ -8,7 +8,7 @@ from sqlalchemy import text
 app = Flask(__name__)
 app.config.from_object(config.Config)
 
-CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173", "supports_credentials": True}})
+CORS(app, resources={r"/api/*": {"origins": "http://192.168.1.3:8080", "supports_credentials": True}})
 
 db.init_app(app)
 

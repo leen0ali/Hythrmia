@@ -4,6 +4,11 @@ This is the backend that has all the logic of hythrmia, ensure authentication as
 >[!IMPORTANT]
 >Ensure mysql docker container started before running this web application.
 
+>[!NOTE]
+Before usage of this website, ensure to update the `app.py` with the current local ip address assigned to your computer.
+```python
+CORS(app, resources={r"/api/*": {"origins": "http://192.168.1.3:8080", "supports_credentials": True}})
+```
 
 ### Prerequisites
 Ensure the latest version of python3 and pip are installed. Python3 [Download](https://www.python.org/downloads/) Ensure to download the right version on your system.
