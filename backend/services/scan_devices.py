@@ -15,7 +15,7 @@ from utils.smtp_utils import add_device, send_email
 
 
 # here are the devices that we are going to check cve for.
-allowedDevices = ['Dahua']
+allowedDevices = ['Dahua', 'zengge','tp-link', 'SHENZHEN']
 
 def hydra(username, ip_address, protocol="rtsp"):
     if 'username' not in session:
