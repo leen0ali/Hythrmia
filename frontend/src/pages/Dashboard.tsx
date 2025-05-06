@@ -85,18 +85,20 @@ const Dashboard = ({ setAlertMessage }: Props) => {
 					text="Scan Magic Home, Surp Life, and flux_led light bulbs for vulnerabilities."
 				/>
 				<CardItem
+				   imageSrc={zwaveLogo}
+				   buttonLink="/zwavepage"
+				   buttonText="Scan Z-Wave Devices"
+				   title="Z-Wave Devices"
+				   text="Discover Z-Wave devices and analyze their security."
+
+					
+				/>
+				<CardItem
 					imageSrc={zigbeeLogo}
 					buttonLink="/scan_zigbee"
 					buttonText="Scan Zigbee Devices"
 					title="Zigbee Devices"
 					text="Detect Zigbee-enabled devices in your network for analysis."
-				/>
-				<CardItem
-					imageSrc={zwaveLogo}
-					buttonLink="/scan_zwave"
-					buttonText="Scan Z-Wave Devices"
-					title="Z-Wave Devices"
-					text="Discover Z-Wave devices and analyze their security."
 				/>
 			</div>
 
