@@ -1,4 +1,4 @@
-from openzwave.network import ZWaveNetwork
+# from openzwave.network import ZWaveNetwork
 import time
 
 network = None
@@ -6,7 +6,7 @@ network = None
 def scan_zwave():
     global network
     try:
-        network = ZWaveNetwork('/dev/ttyACM0', log=None)
+        # network = ZWaveNetwork('/dev/ttyACM0', log=None)
 
         # Start scanning
         network.start()
