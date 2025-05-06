@@ -12,7 +12,8 @@ import ScanLightBulbs from "../pages/ScanLightBulbs";
 import SettingsPage from "../pages/settings";
 import About from "../pages/about";
 import Features from "../pages/features";
-import ZWaveScanPage from "../pages/ZwavePage";
+import ZWaveScanPage from '../pages/ZWaveScanPage'; // Correct relative path
+
 
 type AppRoutesProps = {
 	setUser: React.Dispatch<React.SetStateAction<User | null>>;
@@ -34,7 +35,7 @@ const AppRoutes = ({ setUser, setAlertMessage }: AppRoutesProps) => {
 			<Route path="/settings" element={<SettingsPage />} />
 			<Route path="/about" element={<About />} />
 			<Route path="/features" element={<Features />} />
-			<Route path="/zwavepage" element={<ZWaveScanPage/>} />
+			<Route path="/zwavepage" element={<ZWaveScanPage />} /> {/* Updated Route */}
 		</Routes>
 	);
 };
